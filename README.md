@@ -4,17 +4,13 @@
 ### Quick Start - Run
 1.In Project Root Directory,type <br/>
 ```$xslt
- ./gradlew build
- java -jar build/libs/moneytransfer-1.0-SNAPSHOT.jar (App will be running on http://localhost:8080 ,if nothing is running on 8080)
+ ./mvn clean install
+ java -jar target/moneytransfer-1.0.jar (App will be running on http://localhost:8080 ,if nothing is running on 8080)
 ```
-or
-```$xslt
-1) ./gradlew build
-2) ./gradlew startApp (App will be running on http://localhost:8080 ,if nothing is running on 8080)
-```
+
 ### Run All Tests[Make sure nothing is running on port 8080]
 ```$xslt
-./gradlew test
+./mvn test
 ```
 
 ### Problem
@@ -37,9 +33,9 @@ Implicit requirements:
 ```
 ### Assumptions 
 ######>Assumption 1 : Java was chosen. 
-######>Assumption 2 : Keep it simple . What's simpler than Guice+Spark . No ORM was used to keep things on a simple level and data was stored in a concurrent hashmap
-######>Assumption 3: API invoked by multiple systems & services? <br> Multithreading is enabled by using guice, stateless microservices and concurrent hashmaps while care was taken to use thread safety while accessing data
-######> Assumption 4: Validations are handled at appropriate levels i.e input at controller, business at service and data at repository level.
+######>Assumption 2 : Keep it simple . What's simpler than Guice+Spark . No ORM was used to keep things on a simple level and data was stored in a concurrent hashmap. Spark provides the server, Guice provides beans the ConcurrentHashMap acts as a facade for the repository.
+######>Assumption 3: API invoked by multiple systems & services? <br> Multithreading is enabled by using guice to create singleton beans, stateless actions and ConcurrentHashmap to store the data while care was taken to use thread safety while accessing data
+######> Assumption 4: Validations are handled at appropriate levels i.e input validations at controller, business validation at service and data validation at repository level.
 ## Application usage
 
 
