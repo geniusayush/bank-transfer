@@ -4,8 +4,8 @@
 ### Quick Start - Run
 1.In Project Root Directory,type <br/>
 ```$xslt
- 
- java -jar money-transfer-demo-1.0-SNAPSHOT.jar (App will be running on http://localhost:8080 ,if nothing is running on 8080)
+ ./gradlew build
+ java -jar build/libs/moneytransfer-1.0-SNAPSHOT.jar (App will be running on http://localhost:8080 ,if nothing is running on 8080)
 ```
 or
 ```$xslt
@@ -52,7 +52,7 @@ The following request creates an account and returns the account  with 201 statu
     POST localhost:8080/accounts
     { 
     "name":"ace", 
-    "phone":"ace@g.com", 
+    "phone":123445, 
     "initBalance":5000 
     }
 ```
@@ -63,7 +63,7 @@ Response:
     HTTP 201 Created
     { 
         "name":"ace", 
-        "phone":"ace@g.com", 
+        "phone":123445, 
         "initBalance":5000 
         "id":1234
     }
@@ -80,7 +80,7 @@ Response:
     HTTP 200 OK
      {
        "name":"ace", 
-        "phone":"ace@g.com", 
+        "phone":123445, 
         "initBalance":5000 
         "id":1234
      }
@@ -94,7 +94,7 @@ Transfer money from one account to another:
     POST http://localhost:8080/accounts/1/transaction [Account with id =1 will be debited] 
     
     { 
-        "destinationAccountId":123
+        "destinationAccountId":123,
         "amount":13
     }
 ```
