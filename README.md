@@ -4,8 +4,8 @@
 ### Quick Start - Run
 1.In Project Root Directory,type <br/>
 ```$xslt
- 
- java -jar money-transfer-demo-1.0-SNAPSHOT.jar (App will be running on http://localhost:8080 ,if nothing is running on 8080)
+ ./gradlew build
+ java -jar build/libs/moneytransfer-1.0-SNAPSHOT.jar (App will be running on http://localhost:8080 ,if nothing is running on 8080)
 ```
 or
 ```$xslt
